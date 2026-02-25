@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} Models and Queries hub {% endblock %}
+
+{% block content %}
+<h2>Game Model and Queries</h2>
+<hr>
+<br>
+<form action='' method="post" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.title.label }}  {{ form.title }}<br><br>
+    {{ form.genre.label }}  {{ form.genre }}<br><br>
+    {{ form.rating.label }}  {{ form.rating }}<br><br>
+    {{ form.submit }}
+</form>
+<br>
+<hr>
+<a href="{{ url_for('list_all_games') }}">List of games to edit and delete</a>
+<hr>
+<a href="{{ url_for('index') }}">Return home</a>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %} Update game {% endblock %}
+
+{% block content %}
+<h2>Update a game entry</h2>
+<br>
+<form method="post" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.title.label }} {{ form.title }}<br><br>
+    {{ form.genre.label }} {{ form.genre }} <br><br>
+    {{ form.rating.label }} {{ form.rating }}<br><br>
+    {{ form.submit }}
+</form>
+{% endblock %}
