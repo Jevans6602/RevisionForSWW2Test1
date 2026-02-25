@@ -61,3 +61,20 @@ def update_game(game_id):
         return redirect(url_for("list_all_games"))
     return render_template("update_game.html", form=form)
 
+@app.route('/search_by_genre', methods=['GET', 'POST'])
+def search_by_genre():
+    query = Game.query
+    genre = request.args.get("genre")
+
+    if genre == "rpg":
+        query = Game.query.filter(Game.genre == "rpg")
+    elif genre == "action":
+        query = Game.query.filter(Game.genre == "action")
+    elif genre == "horror":
+        query = Game.query.filter(Game.genre == "horror")
+    elif genre == "multiplayer":
+        query = Game.query.filter(Game.genre == "multiplayer")
+
+    games = query.order_by(Game.title).all()
+    return render_template("search_by_genre.html", games=games)
+
